@@ -37,19 +37,7 @@ class Certificate(models.Model):
     chemicals = models.CharField(max_length=355, null=True, blank=True)
 
 
-    name_and_signature_of_authorized_officer_2 = models.CharField(max_length=355, null=True, blank=True)
-    date_of_inspection_2 = models.CharField(max_length=355, null=True, blank=True)
-    date_of_issue_2 = models.CharField(max_length=355, null=True, blank=True)
-    place_of_issue_2 = models.CharField(max_length=355, null=True, blank=True)
-
     data = models.JSONField(null=True, blank=True)
-
-
-    name_and_signature_of_authorized_officer_3 = models.CharField(max_length=355, null=True, blank=True)
-    date_of_inspection_3 = models.CharField(max_length=355, null=True, blank=True)
-    date_of_issue_3 = models.CharField(max_length=355, null=True, blank=True)
-    place_of_issue_3 = models.CharField(max_length=355, null=True, blank=True)
-
 
     def __str__(self):
         return self.number

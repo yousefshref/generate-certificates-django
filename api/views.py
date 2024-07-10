@@ -92,4 +92,7 @@ def certificate_detail(request, pk):
 
 
 
+
+
+
     

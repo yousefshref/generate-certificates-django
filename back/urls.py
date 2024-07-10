@@ -13,4 +13,6 @@ urlpatterns = [
 
     path('api/certificates/', views.certificates_list),
     path('api/certificates/<int:pk>/', views.certificate_detail),
+
+    
 ]
