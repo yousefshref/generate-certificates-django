@@ -19,6 +19,7 @@ class Certificate(models.Model):
     total_quantity = models.CharField(max_length=355, null=True, blank=True)
     import_permit_no = models.CharField(max_length=355, null=True, blank=True)
     declared_means_of_conveyance = models.CharField(max_length=355, null=True, blank=True)
+    declared_means_of_conveyance_left = models.CharField(max_length=355, null=True, blank=True)
     end_use_purpose = models.CharField(max_length=355, null=True, blank=True)
 
     additional_declaration = models.CharField(max_length=355, null=True, blank=True)
