@@ -38,6 +38,10 @@ class Certificate(models.Model):
     chemicals = models.CharField(max_length=355, null=True, blank=True)
 
 
+    font_size_1 = models.CharField(max_length=355, null=True, blank=True)
+    font_size_2 = models.CharField(max_length=355, null=True, blank=True)
+
+
     data = models.JSONField(null=True, blank=True)
 
     def __str__(self):
