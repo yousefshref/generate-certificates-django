@@ -54,7 +54,7 @@ def user_detail(request):
 @permission_classes([IsAuthenticated])
 def certificates_list(request):
     if request.method == 'GET':
-        certificates = models.Certificate.objects.all()
+        certificates = models.Certificate.objects.all().order_by('-id')
         serializer = serializers.CertificateSerializer(certificates, many=True)
         return Response(serializer.data)
 
@@ -90,6 +90,35 @@ def certificate_detail(request, pk):
         certificate.delete()
         return Response('deleted')
 
+
+
+
+@api_view(['POST'])
+def copy_current_certificate(request, pk):
+    # Fetch the existing certificate
+    certificate = get_object_or_404(models.Certificate, pk=pk)
+    
+    # Get the data from the existing certificate
+    certificate_data = serializers.CertificateSerializer(certificate).data
+    
+    # Update the name to indicate it's a copy
+    new_name = f"{certificate.number} copied"
+    certificate_data['number'] = new_name
+    
+    # Remove the primary key to avoid conflicts
+    certificate_data.pop('id', None)
+    
+    # Create a new certificate with the same data
+    new_certificate_serializer = serializers.CertificateSerializer(data=certificate_data)
+    
+    # Validate and save the new certificate
+    if new_certificate_serializer.is_valid():
+        new_certificate_serializer.save()
+        return Response(new_certificate_serializer.data, status=status.HTTP_201_CREATED)
+    
+    return Response(new_certificate_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    # return Response('')
+    
 
 
     
