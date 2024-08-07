@@ -4,6 +4,8 @@ from django.db import models
 
 
 class Certificate(models.Model):
+    company_name = models.CharField(max_length=355, null=True, blank=True)
+
     number = models.CharField(max_length=355, null=True, blank=True)
     verification_code = models.CharField(max_length=355, null=True, blank=True)
 
