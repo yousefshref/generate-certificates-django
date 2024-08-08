@@ -24,6 +24,18 @@ class Certificate(models.Model):
     declared_means_of_conveyance_left = models.CharField(max_length=355, null=True, blank=True)
     end_use_purpose = models.CharField(max_length=355, null=True, blank=True)
 
+
+    # 
+    scientific_name = models.CharField(max_length=355, null=True, blank=True)
+    common_name = models.CharField(max_length=355, null=True, blank=True)
+    origin = models.CharField(max_length=355, null=True, blank=True)
+    pc_no = models.CharField(max_length=355, null=True, blank=True)
+    quantity = models.CharField(max_length=355, null=True, blank=True)
+    no_packahes = models.CharField(max_length=355, null=True, blank=True)
+    commodity_class = models.CharField(max_length=355, null=True, blank=True)
+    # 
+
+
     additional_declaration = models.CharField(max_length=355, null=True, blank=True)
 
 
